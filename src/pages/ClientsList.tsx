@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 export type ClientType = {
-  id: string
-  name: string
+  id: 
+  name: 
 }
 
 const ClientsList: React.FC = () => {
