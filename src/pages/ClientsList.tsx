@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export type ClientType = {
   id: string
-  name: string
+  name: char
 }
 
 const ClientsList: React.FC = () => {
