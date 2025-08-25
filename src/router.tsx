@@ -7,15 +7,24 @@ import { Navigate, useRoutes } from 'react-router'
 import Layout from './components/layout'
 import { NavGroup } from './components/layout/types'
 import { useAuth } from './context/auth/authContext'
-import Login from './features/authentication/login'
-import Register from './features/authentication/register'
+
+// Kanban
 import Kanban from './features/kanban'
 import CreateKanban from './features/kanban/create'
 import DetailKanban from './features/kanban/detail'
 import EditKanban from './features/kanban/edit'
+
+// Payments
 import { Payments } from './features/payment'
+
+// Posts
 import Post from './features/posts'
 import PostDetail from './features/posts/detail'
+
+// Pages créées
+import Login from './components/pages/auth/Login'
+import Dashboard from './components/pages/Dashboard'
+import ProductsList from './components/pages/Products/ProductsList'
 
 const privateRoutes = [
   {
@@ -26,18 +35,28 @@ const privateRoutes = [
         title: 'General',
         children: [
           {
+            title: 'Dashboard',
+            path: '/dashboard',
+            element: <Dashboard />
+          },
+          {
+            title: 'Products',
+            path: '/products',
+            element: <ProductsList />
+          },
+          {
             title: 'Post',
             icon: NewspaperIcon,
             children: [
               {
                 title: 'Post List',
-                path: '/',
+                path: '/posts',
                 element: <Post />
               },
               {
                 hide: true,
                 title: 'Post Detail',
-                path: '/post/:postId',
+                path: '/posts/:postId',
                 element: <PostDetail />
               }
             ]
@@ -53,7 +72,7 @@ const privateRoutes = [
             icon: LayoutDashboardIcon,
             children: [
               {
-                title: 'Kanban ',
+                title: 'Kanban',
                 path: '/kanban',
                 element: <Kanban />
               },
@@ -86,10 +105,6 @@ const publicRoutes = [
   {
     path: '/',
     element: <Login />
-  },
-  {
-    path: '/register',
-    element: <Register />
   },
   { path: '*', element: <Navigate to='/' replace /> }
 ]

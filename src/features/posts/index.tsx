@@ -34,7 +34,7 @@ export default function Post() {
   useEffect(() => {
     const getPost = async () => {
       const response = await fetch(
-        'https://jsonplaceholder.typicode.com/posts?_limit=10s'
+        'https://jsonplaceholder.typicode.com/posts?_limit=10'
       )
       return response.json()
     }
@@ -104,7 +104,7 @@ export default function Post() {
                 <TableCell className='font-medium'>{post.id}</TableCell>
                 <TableCell>{post.title}</TableCell>
                 <TableCell className='text-right'>
-                  <Link to={`/post/${post.id}`}>
+                  <Link to={`/posts/${post.id}`}>
                     <Button variant={'outline'}>
                       <EyeIcon />
                     </Button>
